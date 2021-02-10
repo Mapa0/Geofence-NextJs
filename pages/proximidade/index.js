@@ -1,13 +1,12 @@
 import Head from "next/head";
 import Link from "next/link";
-import styles from "../styles/Home.module.css";
-import Image from "next/image";
+import styles from "../../styles/Home.module.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import {
-  faUtensils,
-  faCity,
-  faTheaterMasks,
-  faCompass,
+  faHome,
+  faQrcode,
+  faGlobe,
+  faBinoculars,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -16,7 +15,7 @@ export default function Home() {
     <div>
       <div className={styles.fundo}>
         <Head>
-          <title>Projeto Salvador</title>
+          <title>Proximidade</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
@@ -28,20 +27,8 @@ export default function Home() {
               background: "rgb(255,255,255)",
             }}
           >
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-              }}
-            >
-              <Image
-                src="/logo.png"
-                alt="Salvador"
-                width={500}
-                height={500}
-              />
-            </div>
-            <p className={styles.description}>Turismo 4.0</p>
+            <h1 className={styles.title}>Proximidade</h1>
+            <p className={styles.description}>Selecione uma opção:</p>
           </div>
           <div className={styles.grid}>
             <Link href="/">
@@ -50,35 +37,34 @@ export default function Home() {
                 className={styles.card}
               >
                 <h3>
-                  Conheça a cidade &nbsp;
-                  <FontAwesomeIcon icon={faCity} size="xs" />
+                  Voltar &nbsp;
+                  <FontAwesomeIcon icon={faHome} size="xs" />
                 </h3>
-                <p>Descubra a cidade de Salvador!</p>
-              </a>
-            </Link>
-            <Link href="/">
-              <a
-                style={{ background: "rgb(255,255,255)" }}
-                className={styles.card}
-              >
-                <h3>
-                  Conheça a gastronomia &nbsp;
-                  <FontAwesomeIcon icon={faUtensils} size="xs" />
-                </h3>
-                <p>Desbrave as delícias de Salvador!</p>
+                <p>Retornar ao menu principal</p>
               </a>
             </Link>
 
-            <Link href="/">
+            <a
+              style={{ background: "rgb(255,255,255)" }}
+              className={styles.card}
+            >
+              <h3>
+                Ler código-QR &nbsp;
+                <FontAwesomeIcon icon={faQrcode} size="xs" />
+              </h3>
+              <p>Escaneie códigos-QR para aprender mais!</p>
+            </a>
+
+            <Link href="/proximidade/geofence">
               <a
                 style={{ background: "rgb(255,255,255)" }}
                 className={styles.card}
               >
                 <h3>
-                  Conheça a cultura &nbsp;
-                  <FontAwesomeIcon icon={faTheaterMasks} size="xs" />
+                  Cerca Geográfica &nbsp;
+                  <FontAwesomeIcon icon={faGlobe} size="xs" />
                 </h3>
-                <p>Desvende a cultura de Salvador!</p>
+                <p>Obtenha informações ao se posicionar na área delimitada!</p>
               </a>
             </Link>
 
@@ -88,10 +74,10 @@ export default function Home() {
                 className={styles.card}
               >
                 <h3>
-                  Proximidade &nbsp;
-                  <FontAwesomeIcon icon={faCompass} size="xs" />
+                  Ler Beacons Próximos &nbsp;
+                  <FontAwesomeIcon icon={faBinoculars} size="xs" />
                 </h3>
-                <p>QRcodes, Geofences & Beacons</p>
+                <p>Escaneie Beacons próximos para obter mais informações!</p>
               </a>
             </Link>
           </div>
