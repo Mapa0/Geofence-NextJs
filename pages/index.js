@@ -21,7 +21,7 @@ const cerca = {
   longitude: -43.37738698539801,
   link:
     "https://geofencebrasil.com.br/pelourinho",
-  nome: "Vila Luiza",
+  nome: "Pelourinho",
   raio: 100,
 };
 const start = {
