@@ -21,7 +21,7 @@ const cerca = {
   longitude: -43.37738698539801,
   link:
     "https://geofencebrasil.com.br/pelourinho",
-  nome: "Pelourinho",
+  nome: "Vila Luiza",
   raio: 100,
 };
 const start = {
@@ -135,7 +135,7 @@ export default function Home() {
                 className={styles.card}
               >
                 <h3>
-                  Proximidade &nbsp;
+                  Serviços &nbsp;
                   <FontAwesomeIcon icon={faCompass} size="xs" />
                 </h3>
                 <p>Os melhores prestadores de serviço da região!</p>
