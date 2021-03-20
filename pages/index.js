@@ -16,24 +16,31 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
-const cerca = {
+const cerca1 = {
   latitute: -22.8138898979856,
   longitude: -43.37738698539801,
-  link:
-    "https://geofencebrasil.com.br/pelourinho",
+  link: "https://geofencebrasil.com.br/pelourinho",
   nome: "Pelourinho",
-  raio: 100,
+  raio: 10000,
 };
-const start = {
-  latitude: cerca.latitute,
-  longitude: cerca.longitude,
+const cerca2 = {
+  latitute: -22.8138898979856,
+  longitude: -43.37738698539801,
+  link: "https://geofencebrasil.com.br/jorgeamado/",
+  nome: "Jorge Amado",
+  raio: 1000,
 };
-
+const listaCercas = [cerca1, cerca2];
+const cercasEncontradas = [];
 export default function Home() {
   const [cercas, setCercas] = useState([]);
 
   useEffect(() => {
-    if (cercas[0] !== cerca) {
+    let todosEncontrados = true;
+    listaCercas.forEach((cerca) => {
+      if (!(cerca in cercas)) todosEncontrados = false;
+    });
+    if (!todosEncontrados) {
       if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(
           function success(position) {
@@ -41,11 +48,22 @@ export default function Home() {
               latitude: position.coords.latitude,
               longitude: position.coords.longitude,
             };
-            if (haversine(start, end) < 1000) setCercas([cerca]);
-            console.log(cercas);
+            listaCercas.forEach((cerca) => {
+              console.log("Avaliando Cerca ", cerca.nome);
+              let start = {
+                latitude: cerca.latitute,
+                longitude: cerca.longitude,
+              };
+              if (!(cerca in cercasEncontradas)) {
+                if (haversine(start, end) < cerca.raio) {
+                  cercasEncontradas.push(cerca);
+                }
+              }
+            });
+          setCercas(cercasEncontradas);
           },
           function error(error_message) {
-            // for when getting location results in an error
+            // Erro com a geolocalizacao
             console.error(
               "An error has occured while retrievinglocation",
               error_message
@@ -53,8 +71,8 @@ export default function Home() {
           }
         );
       } else {
-        // geolocation is not supported
-        // get your location some other way
+        // geolocalizacao nao suportada
+        // Pegar localizacao de alguma forma
         console.log("geolocation is not enabled on this browser");
       }
     }
@@ -81,17 +99,15 @@ export default function Home() {
                 justifyContent: "center",
               }}
             >
-              <Image
-                src="/logo.png"
-                alt="Salvador"
-                width={500}
-                height={500}
-              />
+              <Image src="/logo.png" alt="Salvador" width={500} height={500} />
             </div>
             <p className={styles.description}>Turismo 4.0</p>
           </div>
           <div className={styles.grid}>
-            <Link href="https://geofencebrasil.com.br/pelourinho/lojas/" passHref={true}>
+            <Link
+              href="https://geofencebrasil.com.br/pelourinho/lojas/"
+              passHref={true}
+            >
               <a
                 style={{ background: "rgb(255,255,255)" }}
                 className={styles.card}
@@ -103,7 +119,10 @@ export default function Home() {
                 <p>Descubra a cidade de Salvador!</p>
               </a>
             </Link>
-            <Link href="https://geofencebrasil.com.br/pelourinho/restaurantes/" passHref={true}>
+            <Link
+              href="https://geofencebrasil.com.br/pelourinho/restaurantes/"
+              passHref={true}
+            >
               <a
                 style={{ background: "rgb(255,255,255)" }}
                 className={styles.card}
@@ -116,7 +135,10 @@ export default function Home() {
               </a>
             </Link>
 
-            <Link href="https://geofencebrasil.com.br/pelourinho/arte/" passHref={true}>
+            <Link
+              href="https://geofencebrasil.com.br/pelourinho/arte/"
+              passHref={true}
+            >
               <a
                 style={{ background: "rgb(255,255,255)" }}
                 className={styles.card}
@@ -129,7 +151,10 @@ export default function Home() {
               </a>
             </Link>
 
-            <Link href="https://geofencebrasil.com.br/pelourinho/servicos/" passHref={true}>
+            <Link
+              href="https://geofencebrasil.com.br/pelourinho/servicos/"
+              passHref={true}
+            >
               <a
                 style={{ background: "rgb(255,255,255)" }}
                 className={styles.card}
@@ -142,7 +167,7 @@ export default function Home() {
               </a>
             </Link>
           </div>
-    <div
+          <div
             style={{
               padding: 30,
               borderRadius: 10,
@@ -167,35 +192,41 @@ export default function Home() {
               />
             </div>
           </div>
+          <div className={styles.grid}></div>
+          <div
+            style={{ background: "rgb(255,255,255)" }}
+            className={styles.card}
+          >
+            <h3>
+              Cercas encontradas &nbsp;
+              <FontAwesomeIcon icon={faGlobe} size="xs" />
+            </h3>
+            {cercas.length <= 0 && (
+              <div>
+                <a style={{ background: "rgb(200,200,200)" }}>
+                  <h4>Nenhuma cerca encontrada!</h4>
+                </a>
+              </div>
+            )}
+          </div>
           <div className={styles.grid}>
-            <div
-              style={{ background: "rgb(255,255,255)" }}
-              className={styles.card}
-            >
-              <h3>
-                Cercas encontradas &nbsp;
-                <FontAwesomeIcon icon={faGlobe} size="xs" />
-              </h3>
-              {cercas.length > 0 && (
-                <div>
-                  <a
-                    style={{ background: "rgb(255,255,255)" }}
-                    href={cerca.link}
-                  >
-                    <h2>{cerca.nome}</h2>
-                  </a>
-                </div>
-              )}
-              {cercas.length <= 0 && (
-                <div>
-                  <a
-                    style={{ background: "rgb(200,200,200)" }}
-                  >
-                    <h4>Nenhuma cerca encontrada!</h4>
-                  </a>
-                </div>
-              )}
-            </div>
+            {cercas.length > 0 && (
+              <div>
+                {cercas.map((cerca) => (
+                  <Link href={cerca.link} passHref={true}>
+                    <div
+                      style={{ background: "rgb(255,255,255)" }}
+                      className={styles.card}
+                    >
+                      <h2>
+                        {cerca.nome}{" "}
+                        <FontAwesomeIcon icon={faCompass} size="xs" />
+                      </h2>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         </main>
       </div>
