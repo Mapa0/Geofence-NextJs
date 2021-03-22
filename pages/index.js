@@ -106,8 +106,8 @@ export default function Home() {
             ></Image>
           </Link>
         </div>
-        <div class="eventos.jpg">
-          <Link href="/">
+        <div class="eventos">
+          <Link href="/eventos.jpg">
             <Image
               src="/eventos.png"
               width={241}
