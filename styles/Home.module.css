@@ -120,26 +120,3 @@
     flex-direction: column;
   }
 }
-
-.fundo {
-  position: relative;
-  color: rgb(0, 0, 0);
-  /*Note, you can change the color to your choice depending on your 
-  image and what color blends with it*/
-}
-
-.fundo::after {
-  content: "";
-  opacity: 0.5;
-  background-image: url("/bg.jpg");
-  background-blend-mode: luminosity;
-  /* also change the blend mode to what suits you, from darken, to other 
-  many options as you deem fit*/
-  background-size: cover;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  position: absolute;
-  z-index: -1;
-}

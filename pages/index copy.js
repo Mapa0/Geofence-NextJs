@@ -85,36 +85,94 @@ export default function Home() {
     }
   });
   return (
-<div id="container">
-<div id="topo"><img src="/html/img/destaque.jpg" width="480" height="373" /> </div>
-<div id="botoes">
-<div class="box"><a href="/html/hoteis.html"><img src="/html/img/hoteis-bt.jpg" width="241" height="138" /></a></div>
-<div><a href="/html/eventos.html"><img src="/html/img/eventos-bt.jpg" width="239" height="138" /></a></div>
-<div class="box"><a href="/html/pontos-turisticos.html"><img src="/html/img/pontos-turisticos-bt.jpg" width="241" height="141" /></a></div>
-<div><a href="/html/servicos.html"><img src="/html/img/servicos-bt.jpg" width="239" height="141" /></a></div>
-</div>
-<div class="search">
-<div class="chamada1"><img src="/html/img/search-cerca.jpg" width="480" height="97" />
-<div class="chamada"><img src="/html/img/radar.jpg" width="59" height="60" /><br /></div>
-<div class="texto-cerca">CERCAS ENCONTRADAS</div>
-<div class="encontradas">
-{cercas.length > 0 && (
+    <div id="App">
+      <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
+      <div id="page-wrap">
+        <div>
+          <Image
+            src="/fundo.png"
+            width={480}
+            height={369}
+            layout="responsive"
+          ></Image>
+        </div>
+        <div class="hoteis">
+          <Link href="/hoteis.jpg">
+            <Image
+              src="/hoteis.png"
+              width={241}
+              height={141}
+              layout="responsive"
+            ></Image>
+          </Link>
+        </div>
+        <div class="eventos">
+          <Link href="/eventos.jpg">
+            <Image
+              src="/eventos.png"
+              width={241}
+              height={141}
+              layout="responsive"
+            ></Image>
+          </Link>
+          <div class="pt">
+            <Link href="/pontos-turisticos.jpg">
+              <Image
+                src="/pontosturisticos.png"
+                width={241}
+                height={141}
+                layout="responsive"
+              ></Image>
+            </Link>
+          </div>
+          <div class="servicos">
+            <Link href="/servicos.jpg">
+              <Image
+                src="/servicos.png"
+                width={241}
+                height={141}
+                layout="responsive"
+              ></Image>
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div style={{ background: "rgb(255,255,255)" }} className={styles.card}>
+        <h3>
+          Buscando cercas geográficas &nbsp;
+          <Spinner animation="grow" variant="dark" size="md" />
+        </h3>
+        {cercas.length <= 0 && (
+          <div>
+            <a style={{ background: "rgb(200,200,200)" }}>
+              <h4>Nenhuma cerca encontrada!</h4>
+            </a>
+          </div>
+        )}
+      </div>
+      <div className={styles.grid}>
+        {cercas.length > 0 && (
           <div>
             {cercas.map((cerca) => (
               <Link href={cerca.link} passHref={true}>
-                <div>
-                {cerca.nome === "Pelourinho" && (<div class="cerca"><a href="#"><img src="/html/img/cerca-pelourunho.jpg" width="266" height="89" /></a></div>)}
-                {cerca.nome === "Jorge Amado" && (<div class="cerca"><a href="#"><img src="/html/img/cerca-jorge-amado.jpg" width="266" height="89" /></a></div>)}
+                <div
+                  style={{ background: "rgb(255,255,255)" }}
+                  className={styles.card}
+                >
+                  <h2>
+                    {cerca.nome} <FontAwesomeIcon icon={faMapMarkedAlt} size="xs" />
+                  </h2>
                 </div>
               </Link>
             ))}
           </div>
         )}
-</div>
-<div class="assinatura">Aplicativo para fins demonstrativos - © Geofence Brasil</div>
-</div>
-</div>
-</div>
-
+      </div>
+      <footer>
+        <div class="fundo">
+          <h6 class="fundo">Aplicativo para fins demonstrativos - © Geofence Brasil</h6>
+        </div>
+      </footer>
+    </div>
   );
 }
