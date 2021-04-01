@@ -9,9 +9,3 @@ body {
 .assinatura { text-align:center; font-size:14px; font-weight:400; margin: 30px 0 40px 0; color:#FFF;}
 .texto-cerca { text-align:center; color:#FFF;}
 .box img {float:left;}
-
-@media only screen (min-width: 768px){
- 
-.box img {float:left;}
- 
-}
