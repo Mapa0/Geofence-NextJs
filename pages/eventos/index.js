@@ -7,7 +7,7 @@ import SideBar from "../sidebar";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 export default function Home() {
   return (
-    <div id="aplicativo">
+    <div id="aplicativo-eventos">
       <Head>
         <title>Eventos</title>
       </Head>
@@ -92,15 +92,17 @@ export default function Home() {
                   dendê e aché. Dia 10 de Março, a partir das 10h. Pelourinho
                 </div>
               </div>
-              <div class="publicidade">
-                {" "}
-                <a href="#">
-                  <img
-                    src="/html/img/publicidade.jpg"
-                    width="100%"
-                    height="57"
-                  />
-                </a>{" "}
+              <div className="footer">
+                <div class="publicidade">
+                  {" "}
+                  <a href="#">
+                    <img
+                      src="/html/img/publicidade.jpg"
+                      width="100%"
+                      height="57"
+                    />
+                  </a>{" "}
+                </div>
               </div>
             </div>
             <div id="openModal" class="modalDialog">

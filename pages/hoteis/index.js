@@ -7,7 +7,7 @@ import SideBar from "../sidebar";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 export default function Home() {
   return (
-    <div id="aplicativo">
+    <div id="aplicativo-hoteis">
       <Head>
         <title>Hotéis</title>
       </Head>
@@ -75,11 +75,13 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div class="publicidade">
-            {" "}
-            <a href="#">
-              <img src="/html/img/publicidade.jpg" width="100%" height="57" />
-            </a>{" "}
+          <div className="footer">
+            <div class="publicidade">
+              {" "}
+              <a href="#">
+                <img src="/html/img/publicidade.jpg" width="100%" height="57" />
+              </a>{" "}
+            </div>
           </div>
         </div>
       </div>

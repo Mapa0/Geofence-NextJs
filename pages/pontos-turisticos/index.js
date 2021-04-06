@@ -3,7 +3,7 @@ import SideBar from "../sidebar";
 import Head from "next/head";
 export default function Home() {
   return (
-    <div id="aplicativo">
+    <div id="aplicativo-pontos-turisticos">
       <Head>
         <title>Pontos Turísticos</title>
       </Head>
@@ -90,15 +90,17 @@ export default function Home() {
                   Saiba Mais.
                 </div>
               </div>
-              <div class="publicidade">
-                {" "}
-                <a href="#">
-                  <img
-                    src="/html/img/publicidade.jpg"
-                    width="100%"
-                    height="57"
-                  />
-                </a>{" "}
+              <div className="footer">
+                <div class="publicidade">
+                  {" "}
+                  <a href="#">
+                    <img
+                      src="/html/img/publicidade.jpg"
+                      width="100%"
+                      height="57"
+                    />
+                  </a>{" "}
+                </div>
               </div>
             </div>
           </div>

@@ -46,6 +46,7 @@ body {
 
 .hotel {
   background-color: #4c76ba;
+  height: 100%;
   margin: auto 0;
   font-family: Arial, Helvetica, sans-serif;
   color: #fff;
@@ -209,6 +210,44 @@ h2 {
   color:slategrey;
 }
 
-#aplicativo {
+#aplicativo-hoteis {
   width: 120%;
+  background-color: #4c76ba;
+}
+#aplicativo-eventos{
+  position:absolute;
+  padding:0;
+  margin:0;
+
+  top:0;
+  left:0;
+
+  width: 120%;
+  height: 120%;
+  background-color: #f7941e;
+}
+
+#aplicativo-pontos-turisticos {
+  width: 120%;
+  background-color: #4c76ba;
+}
+#aplicativo-servicos {
+  position:absolute;
+  padding:0;
+  margin:0;
+
+  top:0;
+  left:0;
+
+  width: 120%;
+  height: 120%;
+  background-color: #000;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }
