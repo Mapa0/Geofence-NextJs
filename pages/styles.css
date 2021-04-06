@@ -11,10 +11,6 @@ body {
 }
 
 #page-wrap {
-  text-align: center;
-
-  /* Prevent sidebar from showing a scrollbar on page */
-  overflow: auto;
 }
 
 /* Individual item */
@@ -41,7 +37,7 @@ body {
   width: 36px;
   height: 30px;
   left: 36px;
-  top: 36px;
+  top: 15px;
 }
 
 /* Color/shape of burger icon bars */
@@ -80,29 +76,4 @@ body {
 /* Styling of overlay */
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
-}
-
-.fundo {
-  background-color: #4c76ba;
-  color: white;
-  border-color: white;
-  margin: auto;
-  /*Note, you can change the color to your choice depending on your 
-  image and what color blends with it*/
-}
-
-.eventos {
-  background-color: #f7941e;
-}
-
-.hoteis {
-  background-color: #4c76ba;
-}
-
-.pt {
-  background-color: #085ca9;
-}
-
-.servicos {
-  background-color: #000000;
 }

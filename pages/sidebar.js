@@ -1,25 +1,38 @@
 import React from "react";
+import Link from "next/link";
 import { slide as Menu } from "react-burger-menu";
 
-export default props => {
+export default (props) => {
   return (
     // Pass on our props
     <Menu {...props}>
-      <a className="menu-item" href="/hoteis.jpg">
+      <Link className="menu-item" href="/">
+        Home
+      </Link>
+      <br />
+      <br />
+
+      <Link className="menu-item" href="/hoteis">
         Hotéis
-      </a>
+      </Link>
+      <br />
+      <br />
 
-      <a className="menu-item" href="/eventos.jpg">
+      <Link className="menu-item" href="/eventos">
         Eventos
-      </a>
+      </Link>
+      <br />
+      <br />
 
-      <a className="menu-item" href="/pontos-turisticos.jpg">
+      <Link className="menu-item" href="/pontos-turisticos">
         Pontos Turísticos
-      </a>
+      </Link>
+      <br />
+      <br />
 
-      <a className="menu-item" href="/servicos.jpg">
+      <Link className="menu-item" href="/servicos">
         Serviços
-      </a>
+      </Link>
     </Menu>
   );
 };

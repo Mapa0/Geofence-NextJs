@@ -1,27 +1,11 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import Head from "next/head";
 import Link from "next/link";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
+import style from "../styles/Home.module.css";
 import SideBar from "./sidebar";
 const haversine = require("haversine");
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import {
-  faUtensils,
-  faCity,
-  faTheaterMasks,
-  faCompass,
-  faGlobe,
-  faMapMarkerAlt,
-  faMapMarkedAlt
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Spinner from "react-bootstrap/Spinner";
 
 const cerca1 = {
   latitute: -22.8138898979856,
@@ -85,36 +69,82 @@ export default function Home() {
     }
   });
   return (
-<div id="container">
-<div id="topo"><img src="/html/img/destaque.jpg" width="480" height="373" /> </div>
-<div id="botoes">
-<div class="box"><a href="/html/hoteis.html"><img src="/html/img/hoteis-bt.jpg" width="241" height="138" /></a></div>
-<div><a href="/html/eventos.html"><img src="/html/img/eventos-bt.jpg" width="239" height="138" /></a></div>
-<div class="box"><a href="/html/pontos-turisticos.html"><img src="/html/img/pontos-turisticos-bt.jpg" width="241" height="141" /></a></div>
-<div><a href="/html/servicos.html"><img src="/html/img/servicos-bt.jpg" width="239" height="141" /></a></div>
-</div>
-<div class="search">
-<div class="chamada1"><img src="/html/img/search-cerca.jpg" width="480" height="97" />
-<div class="chamada"><img src="/html/img/radar.jpg" width="59" height="60" /><br /></div>
-<div class="texto-cerca">CERCAS ENCONTRADAS</div>
-<div class="encontradas">
-{cercas.length > 0 && (
-          <div>
-            {cercas.map((cerca) => (
-              <Link href={cerca.link} passHref={true}>
-                <div>
-                {cerca.nome === "Pelourinho" && (<div class="cerca"><a href="#"><img src="/html/img/cerca-pelourunho.jpg" width="266" height="89" /></a></div>)}
-                {cerca.nome === "Jorge Amado" && (<div class="cerca"><a href="#"><img src="/html/img/cerca-jorge-amado.jpg" width="266" height="89" /></a></div>)}
-                </div>
-              </Link>
-            ))}
+    <div id="App">
+      <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
+      <div id="page-wrap">
+        <div id="topo">
+          <img src="/html/img/destaque.jpg" width="480" height="373" />{" "}
+        </div>
+        <div id="botoes">
+          <div className="flex-container">
+            <Link className="caixa" href="/hoteis">
+              <img src="/html/img/hoteis-bt.jpg" />
+            </Link>
+            <a className="caixa" href="/eventos">
+              <img src="/html/img/eventos-bt.jpg" />
+            </a>
           </div>
-        )}
-</div>
-<div class="assinatura">Aplicativo para fins demonstrativos - © Geofence Brasil</div>
-</div>
-</div>
-</div>
-
+          <div className="flex-container">
+            <div>
+              <a className="caixa" href="/pontos-turisticos">
+                <img src="/html/img/pontos-turisticos-bt.jpg" />
+              </a>
+            </div>
+            <div>
+              <a className="caixa" href="/servicos">
+                <img src="/html/img/servicos-bt.jpg" />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="search">
+          <div className="chamada1">
+            <img src="/html/img/search-cerca.jpg" width="480" height="97" />
+            <div className="chamada">
+              <img src="/html/img/radar.jpg" width="59" height="60" />
+              <br />
+            </div>
+            <div className="texto-cerca">CERCAS ENCONTRADAS</div>
+            <div className="encontradas">
+              {cercas.length > 0 && (
+                <div>
+                  {cercas.map((cerca) => (
+                    <Link href={cerca.link} passHref={true}>
+                      <div>
+                        {cerca.nome === "Pelourinho" && (
+                          <div class="cerca">
+                            <a href="#">
+                              <img
+                                src="/html/img/cerca-pelourunho.jpg"
+                                width="266"
+                                height="89"
+                              />
+                            </a>
+                          </div>
+                        )}
+                        {cerca.nome === "Jorge Amado" && (
+                          <div class="cerca">
+                            <a href="#">
+                              <img
+                                src="/html/img/cerca-jorge-amado.jpg"
+                                width="266"
+                                height="89"
+                              />
+                            </a>
+                          </div>
+                        )}
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+            <div className="assinatura">
+              Aplicativo para fins demonstrativos - © Geofence Brasil
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
