@@ -88,7 +88,6 @@ body {
   margin-bottom: 20px;
   clear: both;
   padding: 0px 5px 10px 0px;
-
 }
 .texto {
   margin: auto 0;
@@ -134,9 +133,18 @@ h2 {
   text-decoration: none;
 }
 
-.link-servico a:link {color:yellow; text-decoration: none;}
-.link-servico a:visited {color:yellow; text-decoration: none;}
-.link-servico a:hover {color:#ccc; text-decoration: none;}
+.link-servico a:link {
+  color: yellow;
+  text-decoration: none;
+}
+.link-servico a:visited {
+  color: yellow;
+  text-decoration: none;
+}
+.link-servico a:hover {
+  color: #ccc;
+  text-decoration: none;
+}
 
 .modalDialog {
   position: fixed;
@@ -192,4 +200,15 @@ h2 {
 
 .close:hover {
   background: #00d9ff;
+}
+
+.texto-branco{
+  color: #fff;
+}
+.texto-branco:hover{
+  color:slategrey;
+}
+
+#aplicativo {
+  width: 120%;
 }

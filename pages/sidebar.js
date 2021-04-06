@@ -7,31 +7,41 @@ export default (props) => {
     // Pass on our props
     <Menu {...props}>
       <Link className="menu-item" href="/">
-        Home
+        <a className="texto-branco">
+          Home
+        </a>
       </Link>
       <br />
       <br />
 
       <Link className="menu-item" href="/hoteis">
-        Hotéis
+      <a className="texto-branco">
+          Hoteis
+        </a>
       </Link>
       <br />
       <br />
 
       <Link className="menu-item" href="/eventos">
-        Eventos
+      <a className="texto-branco">
+          Eventos
+        </a>
       </Link>
       <br />
       <br />
 
       <Link className="menu-item" href="/pontos-turisticos">
-        Pontos Turísticos
+      <a className="texto-branco">
+          Pontos turísticos
+        </a>
       </Link>
       <br />
       <br />
 
       <Link className="menu-item" href="/servicos">
-        Serviços
+      <a className="texto-branco">
+          Serviços
+        </a>
       </Link>
     </Menu>
   );

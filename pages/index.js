@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import Link from "next/link";
 import style from "../styles/Home.module.css";
+import Head from "next/head";
 import SideBar from "./sidebar";
 const haversine = require("haversine");
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -70,6 +71,9 @@ export default function Home() {
   });
   return (
     <div id="App">
+      <Head>
+        <title>Salvador</title>
+      </Head>
       <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
       <div id="page-wrap">
         <div id="topo">
@@ -112,7 +116,7 @@ export default function Home() {
                     <Link href={cerca.link} passHref={true}>
                       <div>
                         {cerca.nome === "Pelourinho" && (
-                          <div class="cerca">
+                          <div className="cerca">
                             <a href="#">
                               <img
                                 src="/html/img/cerca-pelourunho.jpg"
@@ -123,7 +127,7 @@ export default function Home() {
                           </div>
                         )}
                         {cerca.nome === "Jorge Amado" && (
-                          <div class="cerca">
+                          <div className="cerca">
                             <a href="#">
                               <img
                                 src="/html/img/cerca-jorge-amado.jpg"
